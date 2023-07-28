@@ -5,6 +5,8 @@ import productRouter from './routes/pokemon.router.js'
 
 import __dirname from './utils.js'
 
+//const { Server } = require("socket.io");
+
 const app = express()
 
 // Carpeta publica
