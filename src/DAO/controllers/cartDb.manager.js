@@ -1,4 +1,6 @@
 import cartModel from "../models/cartModel.js";
+
+
 export default class CartDbManager{
     constructor() {
         /*getById = async (id) => {   
@@ -12,4 +14,12 @@ export default class CartDbManager{
     setCart = async (cart) => {
         return await cartModel.create(cart);
     }
+    getCartbyId = async (cart) => {
+        carrito =  cartModel.find({id})
+        return await carrito
+    }
+    updateCart = async (id,product) => {
+        return await cartModel.updateOne({_id:id},product);
+    }
+
 }
