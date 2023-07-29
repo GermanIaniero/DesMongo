@@ -1,4 +1,4 @@
-import productModel from "../models/productModel.js";
+import productModel from "../mongoManager/models/productModel.js"
 export default class ProductDbManager{
     constructor() {
         /*getById = async (id) => {   

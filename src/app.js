@@ -1,7 +1,7 @@
 import express from 'express'
 import handlebars from 'express-handlebars'
 import mongoose from 'mongoose'
-import productRouter from './routes/pokemon.router.js'
+import productRouter from './routes/product.router.js'
 
 import __dirname from './utils.js'
 
