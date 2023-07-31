@@ -40,13 +40,6 @@ router.post('/create', async (req, res) => {
 })
 
 
-
-
-
-
-
-
-
 // Pagina para crear pokemons (render HTML)\
 router.get('/create', async (req, res) => {
     res.render('create', {})

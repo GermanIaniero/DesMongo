@@ -1,4 +1,4 @@
-const mongoose = require("mongoose")
+import mongoose  from "mongoose"
 
 const chatsCollection = "messages"
 
@@ -10,6 +10,6 @@ const chatSchema = new mongoose.Schema({
 
 mongoose.set("strictQuery", false);
 
-const ChatModel = mongoose.model(chatsCollection, chatSchema)
+const chatModel = mongoose.model(chatsCollection, chatSchema)
 
-module.exports = ChatModel;
+export default chatModel;

@@ -10,7 +10,7 @@ const productSchema = new mongoose.Schema({
     thumbnail:Array,
     code:Number,
     stock:Number,
-    status:Boolean,
+    status:{type: Boolean, required:true, default:true},
     category:String,
     //Investigar requerido por defecto mongoose en js
 })
