@@ -1,0 +1,15 @@
+<h1 class="text-center">Carrito</h1>
+
+<div>
+    <div style="display: flex; flex-wrap: wrap; justify-content: center;">
+        {{#each cart}}
+        <div class="card" style="margin: 10px 100px">
+            <div class="card-body">
+                <p class="card-title">{{id}}</p>
+                <p class="card-text">{{quantity}}</p>
+               
+            </div>
+        </div>
+        {{/each}}
+    </div>
+</div>

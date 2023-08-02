@@ -21,7 +21,10 @@ router.get('/form-products', async (req, res) => {
 })
 
 router.get('/chat', async (req, res) => {
-    res.render('chat', {}) // 
+    //res.render('chat', {}) // 
+
+    const chat = await chatModel.find().lean().exec()
+    res.render('chat', { chat })
 })
 
 router.post('/form-products', async (req, res) => {

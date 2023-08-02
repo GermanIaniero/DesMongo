@@ -5,8 +5,8 @@ import productRouter from './routes/product.router.js'
 import viewRouter from './routes/view.router.js'
 import __dirname from './utils.js'
 import {Server} from "socket.io"
-import modelMessage from './DAO/mongoManager/models/modelMessage.js'
-
+import chatModel from './DAO/mongoManager/models/modelMessage.js'
+import cartRouter from './routes/cart.router.js'
 //const { Server } = require("socket.io");
 
 const app = express()
@@ -26,6 +26,7 @@ app.set('view engine', 'handlebars')
 app.use('/', viewRouter)
 
 app.use('/products', productRouter)
+app.use('/cart', cartRouter)
 app.get('/', (req, res) => res.send('It works great!!'))
 
 mongoose.set('strictQuery', false)
@@ -48,7 +49,18 @@ mongoose.connect(URL, {
 
     const io = new Server(httpServer);
 
-    io.on("connection", (socket) => {
+    const messages = []
+
+
+    io.on("connection", async (socket) => {
       console.log("nueva conexion");
-      socket.on("client:message", (data) => { console.log('Información que viene del front:', data) })
+      socket.on("client:message", async(data) => {
+         console.log('Información que viene del front:', data) 
+         await chatModel.create(data)
+
+         messages.push(data)
+         //let prueba = await chatModel.find() 
+         socket.emit("server:messages",messages)
+
+        })
     })  
